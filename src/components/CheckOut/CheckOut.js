@@ -16,7 +16,7 @@ const CheckOut = () => {
   const handleCheckOut = () => {
     const orderDetails = {
       ...loggedInUser,
-      ...book,
+      orders: book,
       orderTime: new Date(),
     };
     fetch("http://localhost:8080/addOrder", {
