@@ -1,0 +1,10 @@
+.books-nav-link {
+  font-weight: 500;
+}
+.books-hover:hover a {
+  background: #d8d5e9;
+  border-radius: 5px;
+}
+.logo {
+  width: 150px;
+}
