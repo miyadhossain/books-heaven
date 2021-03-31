@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 const ManageBook = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8080/books")
+    fetch("https://mysterious-shelf-54096.herokuapp.com/books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
 
   // handle delete
   const handleDelete = (id) => {
-    fetch(`http://localhost:8080/deleteBook/${id}`, {
+    fetch(`https://mysterious-shelf-54096.herokuapp.com/deleteBook/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

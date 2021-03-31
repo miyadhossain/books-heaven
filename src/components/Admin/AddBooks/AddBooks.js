@@ -14,7 +14,7 @@ const AddBooks = () => {
       price: data.price,
       imgURL: imgURL,
     };
-    const url = `http://localhost:8080/addBook`;
+    const url = `https://mysterious-shelf-54096.herokuapp.com/addBook`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

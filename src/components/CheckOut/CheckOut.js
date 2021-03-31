@@ -7,7 +7,7 @@ const CheckOut = () => {
   const { id } = useParams();
   const [book, setBook] = useState({});
   useEffect(() => {
-    fetch("http://localhost:8080/book/" + id)
+    fetch("https://mysterious-shelf-54096.herokuapp.com/book/" + id)
       .then((res) => res.json())
       .then((data) => setBook(data));
   }, [id]);
@@ -19,7 +19,7 @@ const CheckOut = () => {
       orders: book,
       orderTime: new Date(),
     };
-    fetch("http://localhost:8080/addOrder", {
+    fetch("https://mysterious-shelf-54096.herokuapp.com/addOrder", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
