@@ -1,3 +1,5 @@
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import firebase from "firebase/app";
 import "firebase/auth";
 import React, { useContext, useState } from "react";
@@ -42,7 +44,15 @@ const Login = () => {
   };
   return (
     <div>
-      <button onClick={handleGoogleSignIn}>Continue with Google</button>
+      <div className="formStyle">
+        <h3 className="text-center">Sign In</h3>
+        <button
+          className="mx-auto d-block btn btn-outline-primary rounded-pill mt-5"
+          onClick={handleGoogleSignIn}
+        >
+          <FontAwesomeIcon icon={faGoogle} size="1x" /> Continue with Google
+        </button>
+      </div>
     </div>
   );
 };
