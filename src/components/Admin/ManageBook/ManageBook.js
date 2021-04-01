@@ -17,12 +17,13 @@ const ManageBook = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        alert("Delete successfullt.");
       });
   };
   return (
     <div className="container">
       <h3 className="mt-5">Mangae Books</h3>
+      <p className="fw-bold">Total Books collection : {books.length}</p>
       <table className="table table-hover table-borderless mt-3">
         <thead>
           <tr className="bookHeading">
