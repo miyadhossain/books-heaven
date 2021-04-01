@@ -1,4 +1,7 @@
-.sideBar {
-  background-color: darkblue;
-  min-height: 500px;
+.sideBarBtn {
+  color: white;
+}
+
+.sideBarBtn:hover {
+  color: lightgray;
 }

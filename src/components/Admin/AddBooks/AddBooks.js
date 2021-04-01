@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import "./AddBook.css";
 
 const AddBooks = () => {
   const [imgURL, setImgURL] = useState(null);
@@ -19,7 +20,9 @@ const AddBooks = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booksData),
-    }).then((res) => console.log("server side response, ", res));
+    }).then((res) => {
+      alert("Book added successfully.");
+    });
   };
 
   // upload images
@@ -32,7 +35,7 @@ const AddBooks = () => {
       .post("https://api.imgbb.com/1/upload", imgData)
       .then(function (response) {
         setImgURL(response.data.data.display_url);
-        console.log(response.data.data.display_url);
+        alert("Image upload successfully");
       })
       .catch(function (error) {
         console.log(error);
@@ -40,15 +43,15 @@ const AddBooks = () => {
   };
   return (
     <div className="container">
-      <h3>Add Books</h3>
-      <div>
+      <h3 className="mt-5">Add Books</h3>
+      <div className="mt-3 addBookContainer">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row">
             <div className="col-md-6">
               <label htmlFor="">Book Name</label>
               <input
                 name="bookName"
-                className="form-control"
+                className="form-control mt-3"
                 type="text"
                 placeholder="Enter Name"
                 ref={register}
@@ -58,7 +61,7 @@ const AddBooks = () => {
               <label htmlFor="">Author Name</label>
               <input
                 name="authorName"
-                className="form-control"
+                className="form-control mt-3"
                 type="text"
                 placeholder="Enter Name"
                 ref={register}
@@ -67,19 +70,23 @@ const AddBooks = () => {
           </div>
           <div className="row">
             <div className="col-md-6">
-              <label htmlFor="">Price</label>
+              <label className="mt-3" htmlFor="">
+                Add Price
+              </label>
               <input
                 name="price"
-                className="form-control"
+                className="form-control mt-3"
                 type="text"
                 placeholder="Enter Price"
                 ref={register}
               />
             </div>
             <div className="col-md-6">
-              <label htmlFor="">Add Book Cover Photo</label>
+              <label className="mt-3" htmlFor="">
+                Add Book Cover Photo
+              </label>
               <input
-                className="form-control"
+                className="form-control mt-3"
                 type="file"
                 name=""
                 id=""
@@ -88,7 +95,7 @@ const AddBooks = () => {
             </div>
           </div>
           <input
-            className="btn btn-outline-primary mt-3"
+            className="btn saveButton mt-5 float-end"
             type="submit"
             value="Save"
           />

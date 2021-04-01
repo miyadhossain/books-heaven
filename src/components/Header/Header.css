@@ -2,9 +2,6 @@
   font-weight: 500;
 }
 .books-hover:hover a {
-  background: #d8d5e9;
+  background: #e5d8ee;
   border-radius: 5px;
-}
-.logo {
-  width: 150px;
 }

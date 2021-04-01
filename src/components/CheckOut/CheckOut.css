@@ -2,4 +2,15 @@
   background-color: lavender;
   border-radius: 10px;
   padding: 30px;
+  box-shadow: 0 5px 10px lightgray;
+}
+
+.checkOutBtn {
+  background-color: indigo;
+  color: #ffff;
+  font-weight: 600;
+}
+
+.checkOutBtn:hover {
+  color: lavender;
 }

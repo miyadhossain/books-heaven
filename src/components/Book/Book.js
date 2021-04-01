@@ -10,14 +10,25 @@ const Book = ({ book }) => {
   };
   return (
     <div className="card" style={{ width: "18rem", margin: "30px" }}>
-      <img className="icon mx-auto d-block" src={imgURL} alt="" />
+      <div
+        className="justify-content-center align-items-center bookCard"
+        style={{ backgroundColor: "#F1F1F1", borderRadius: "10px" }}
+      >
+        <img className="icon mx-auto d-block" src={imgURL} alt="" />
+      </div>
       <div className="card-body text-center">
-        <h6>{bookName}</h6>
+        <h5 className="fw-bold">{bookName}</h5>
         <p>{authorName}</p>
-        <h4>${price}</h4>
-        <button onClick={hanldeBuy} className="btn btn-primary">
-          Buy Now
-        </button>
+        <div className="d-flex justify-content-between align-items-center ">
+          <span>
+            <h4 className="priceTag">${price}</h4>
+          </span>
+          <span>
+            <button onClick={hanldeBuy} className="btn button">
+              Buy Now
+            </button>
+          </span>
+        </div>
       </div>
     </div>
   );

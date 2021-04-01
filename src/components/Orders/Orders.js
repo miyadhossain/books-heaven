@@ -12,19 +12,49 @@ const Orders = () => {
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [loggedInUser.email]);
+
+  // total orders price
+  const total = orders.reduce(
+    (total, book) => total + Number(book.orders.price),
+    0
+  );
   return (
-    <div>
+    <div className="container mt-3">
       <h3>Orders Detail</h3>
-      {orders.length}
-      {orders.map((order) => (
-        <div>
-          <li>{order.orders.bookName}</li>
-          <li>{order.orders.price}</li>
-          <li>
-            Order Time: {new Date(order.orderTime).toDateString("dd/MM/yyyy")}
-          </li>
-        </div>
-      ))}
+      <p className="fw-bold">
+        {loggedInUser.name}, your total orders {orders.length}
+      </p>
+      <table className="table table-hover table-borderless mt-3">
+        <thead>
+          <tr className="bookHeading">
+            <th>Order Id</th>
+            <th>Books Name</th>
+            <th>Author Name</th>
+            <th>Price</th>
+            <th>Order Time</th>
+          </tr>
+        </thead>
+        {orders.map((order) => (
+          <tbody key={order._id}>
+            <tr>
+              <th>{order._id}</th>
+              <td>{order.orders.bookName}</td>
+              <td>{order.orders.authorName}</td>
+              <td>${order.orders.price}</td>
+              <td>{new Date(order.orderTime).toDateString("dd/MM/yyyy")}</td>
+            </tr>
+          </tbody>
+        ))}
+        <tbody>
+          <tr>
+            <td className="fw-bold">Total</td>
+            <td></td>
+            <td></td>
+            <td className="fw-bold">${total}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

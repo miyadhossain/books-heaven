@@ -1,63 +1,78 @@
+import {
+  Container,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import ManageIcon from "../../icons/grid 1.png";
+import AddIcon from "../../icons/plus 1.png";
 import AddBooks from "./AddBooks/AddBooks";
 import "./Admin.css";
 import ManageBook from "./ManageBook/ManageBook";
 
-const routes = [
-  {
-    path: "/manageBook",
-    exact: true,
-    main: () => <ManageBook></ManageBook>,
+const useStyles = makeStyles(() => ({
+  drawerPaper: { width: "inherit", backgroundColor: "#172B4D" },
+  link: {
+    textDecoration: "none",
+    color: "#FFFF",
   },
-  {
-    path: "/",
-    main: () => <AddBooks></AddBooks>,
-  },
-  {
-    path: "/editBook",
-    main: () => <h2>Edit Books</h2>,
-  },
-];
+}));
 
 const Admin = () => {
+  const classes = useStyles();
   return (
-    <Router>
-      <div style={{ display: "flex" }}>
-        <div className="sideBar">
-          <ul style={{ listStyleType: "none", padding: 0 }}>
-            <li>
-              <Link to="/manageBook">Manage Books</Link>
-            </li>
-            <li>
-              <Link to="/">Add Book</Link>
-            </li>
-            <li>
-              <Link to="/editBook">Edit Book</Link>
-            </li>
-          </ul>
-
+    <div>
+      <Router>
+        <div style={{ display: "flex" }}>
+          <Drawer
+            style={{ width: "200px" }}
+            variant="persistent"
+            anchor="left"
+            open={true}
+            classes={{ paper: classes.drawerPaper }}
+          >
+            <List>
+              <Link to="/manageBooks" className={classes.link}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <img style={{ width: "20px" }} src={ManageIcon} alt="" />
+                  </ListItemIcon>
+                  <ListItemText
+                    className="sideBarBtn"
+                    primary={"Manage Books"}
+                  />
+                </ListItem>
+              </Link>
+              <Link to="/addBooks" className={classes.link}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <img style={{ width: "20px" }} src={AddIcon} alt="" />
+                  </ListItemIcon>
+                  <ListItemText className="sideBarBtn" primary={"Add Books"} />
+                </ListItem>
+              </Link>
+            </List>
+          </Drawer>
           <Switch>
-            {routes.map((route, index) => (
-              <Route key={index} path={route.path} exact={route.exact} />
-            ))}
+            <Route active={true} exact path="/manageBooks">
+              <Container>
+                <ManageBook></ManageBook>
+              </Container>
+            </Route>
+            <Route path="/addBooks">
+              <Container>
+                <AddBooks></AddBooks>
+              </Container>
+            </Route>
           </Switch>
         </div>
-
-        <div style={{ flex: 1, padding: "10px" }}>
-          <Switch>
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.main />}
-              />
-            ))}
-          </Switch>
-        </div>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 };
 

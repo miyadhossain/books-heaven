@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { userContext } from "../../App";
 import "./Header.css";
 
 const Header = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  const { success } = loggedInUser;
+  const [logout, setLogOut] = useContext(userContext);
   return (
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
-          <Link to="/home" className="navbar-brand">
+          <Link to="/home" className="navbar-brand ">
             Book's Heaven
           </Link>
           <button
@@ -45,10 +49,20 @@ const Header = () => {
                   Admin
                 </Link>
               </li>
-              <li className="nav-item books-hover">
+              <li
+                onClick={() => setLogOut({})}
+                className="nav-item books-hover"
+              >
                 <Link to="/login" className="nav-link books-nav-link">
-                  Login
+                  {success ? <>Log out</> : <>Log in</>}
                 </Link>
+              </li>
+              <li className="nav-item books-hover">
+                {success && (
+                  <span className="nav-link books-nav-link">
+                    {loggedInUser.name}
+                  </span>
+                )}
               </li>
             </ul>
           </div>

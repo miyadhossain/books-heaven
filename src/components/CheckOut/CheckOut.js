@@ -34,9 +34,9 @@ const CheckOut = () => {
   };
   return (
     <div className="container">
-      <h2>Check Out</h2>
-      <div className="checkoutContainer">
-        <table className="table">
+      <h3>Check Out</h3>
+      <div className="checkoutContainer mt-3">
+        <table className="table table-borderless">
           <thead>
             <tr>
               <th scope="col">Description</th>
@@ -62,7 +62,7 @@ const CheckOut = () => {
       </div>
       <button
         onClick={handleCheckOut}
-        className="btn btn-primary mt-4 float-end"
+        className="btn checkOutBtn mt-4 float-end"
       >
         CheckOut
       </button>

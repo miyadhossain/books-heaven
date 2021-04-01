@@ -1,3 +1,20 @@
 .icon {
   width: 120px;
+  margin: 15px;
+  min-height: 180px;
+}
+.bookCard {
+  margin: 10px;
+}
+.priceTag {
+  color: indigo;
+  font-weight: 700;
+}
+.button {
+  background-color: indigo;
+  color: #ffff;
+  font-weight: 600;
+}
+.button:hover {
+  color: lavender;
 }

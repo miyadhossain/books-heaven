@@ -1,6 +1,6 @@
-import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+import DeleteIcon from "../../../icons/delete.png";
+import "./ManageBook.css";
 
 const ManageBook = () => {
   const [books, setBooks] = useState([]);
@@ -21,29 +21,32 @@ const ManageBook = () => {
       });
   };
   return (
-    <div>
-      <table className="table">
+    <div className="container">
+      <h3 className="mt-5">Mangae Books</h3>
+      <table className="table table-hover table-borderless mt-3">
         <thead>
-          <tr>
-            <th scope="col">Description</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
-            <th scope="col">Price</th>
+          <tr className="bookHeading">
+            <th scope="col"></th>
+            <th scope="">Description</th>
+            <th scope="">Quantity</th>
+            <th scope="">Price</th>
+            <th scope="">Action</th>
           </tr>
         </thead>
         {books.map((book) => (
-          <tbody>
+          <tbody key={book._id}>
             <tr>
+              <th scope="row"></th>
               <td>{book.bookName}</td>
               <td>{book.authorName}</td>
               <td>${book.price}</td>
               <td>
-                <button>
-                  <FontAwesomeIcon icon={faEdit} />
-                </button>
-                <button onClick={() => handleDelete(book._id)}>
-                  <FontAwesomeIcon icon={faTrashAlt} />
-                </button>
+                <img
+                  onClick={() => handleDelete(book._id)}
+                  className="deleteIcon"
+                  src={DeleteIcon}
+                  alt=""
+                />
               </td>
             </tr>
           </tbody>

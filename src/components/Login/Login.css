@@ -4,3 +4,12 @@
   max-width: 500px;
   margin: 0 auto;
 }
+
+.loginBtn {
+  background-color: indigo;
+  color: #ffff;
+  font-weight: 600;
+}
+.loginBtn:hover {
+  color: lavender;
+}
