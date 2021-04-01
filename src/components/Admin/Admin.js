@@ -1,3 +1,5 @@
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Container,
   Drawer,
@@ -7,8 +9,9 @@ import {
   ListItemText,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { userContext } from "../../App";
 import ManageIcon from "../../icons/grid 1.png";
 import AddIcon from "../../icons/plus 1.png";
 import AddBooks from "./AddBooks/AddBooks";
@@ -24,6 +27,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Admin = () => {
+  const [logOut, setLogOut] = useContext(userContext);
   const classes = useStyles();
   return (
     <div>
@@ -56,6 +60,16 @@ const Admin = () => {
                   <ListItemText className="sideBarBtn" primary={"Add Books"} />
                 </ListItem>
               </Link>
+              <ListItem button>
+                <ListItemIcon>
+                  <FontAwesomeIcon className="text-light" icon={faSignOutAlt} />
+                </ListItemIcon>
+                <ListItemText
+                  onClick={() => setLogOut({})}
+                  className="sideBarBtn"
+                  primary={"Logout"}
+                />
+              </ListItem>
             </List>
           </Drawer>
           <Switch>
