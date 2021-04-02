@@ -59,8 +59,9 @@ const Orders = () => {
             <td className="fw-bold">Total</td>
             <td></td>
             <td></td>
-            <td className="fw-bold"></td>
+            <td></td>
             <td className="fw-bold">${total}</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
