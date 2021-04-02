@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { userContext } from "../../App";
-import "./Header.css";
 
-const Header = () => {
+const AdminHeader = () => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const { success } = loggedInUser;
   const [logout, setLogOut] = useContext(userContext);
@@ -11,9 +10,6 @@ const Header = () => {
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
-          <Link to="/home" className="navbar-brand heavenNav">
-            <span className="heaven">Book's Heaven</span>
-          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -72,4 +68,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AdminHeader;

@@ -1,5 +1,3 @@
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Container,
   Drawer,
@@ -9,13 +7,13 @@ import {
   ListItemText,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import { userContext } from "../../App";
 import ManageIcon from "../../icons/grid 1.png";
 import AddIcon from "../../icons/plus 1.png";
 import AddBooks from "./AddBooks/AddBooks";
 import "./Admin.css";
+import AdminHeader from "./AdminHeader";
 import ManageBook from "./ManageBook/ManageBook";
 
 const useStyles = makeStyles(() => ({
@@ -27,10 +25,11 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Admin = () => {
-  const [logOut, setLogOut] = useContext(userContext);
   const classes = useStyles();
   return (
-    <div>
+    <div className="container">
+      <AdminHeader></AdminHeader>
+      <h3 className="text-center mt-3">Admin Panel</h3>
       <Router>
         <div style={{ display: "flex" }}>
           <Drawer
@@ -41,7 +40,7 @@ const Admin = () => {
             classes={{ paper: classes.drawerPaper }}
           >
             <List>
-              <Link to="/manageBooks" className={classes.link}>
+              <Link to="/" className={classes.link}>
                 <ListItem button>
                   <ListItemIcon>
                     <img style={{ width: "20px" }} src={ManageIcon} alt="" />
@@ -60,25 +59,15 @@ const Admin = () => {
                   <ListItemText className="sideBarBtn" primary={"Add Books"} />
                 </ListItem>
               </Link>
-              <ListItem button>
-                <ListItemIcon>
-                  <FontAwesomeIcon className="text-light" icon={faSignOutAlt} />
-                </ListItemIcon>
-                <ListItemText
-                  onClick={() => setLogOut({})}
-                  className="sideBarBtn"
-                  primary={"Logout"}
-                />
-              </ListItem>
             </List>
           </Drawer>
           <Switch>
-            <Route active={true} exact path="/manageBooks">
+            <Route exact path="/">
               <Container>
                 <ManageBook></ManageBook>
               </Container>
             </Route>
-            <Route path="/addBooks">
+            <Route exact path="/addBooks">
               <Container>
                 <AddBooks></AddBooks>
               </Container>

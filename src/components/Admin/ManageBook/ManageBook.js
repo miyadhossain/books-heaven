@@ -22,14 +22,15 @@ const ManageBook = () => {
   };
   return (
     <div className="container">
-      <h3 className="mt-5">Mangae Books</h3>
+      <h3 className="mt-2">Mangae Books</h3>
       <p className="fw-bold">Total Books collection : {books.length}</p>
       <table className="table table-hover table-borderless mt-3">
         <thead>
           <tr className="bookHeading">
             <th scope="col"></th>
-            <th scope="">Description</th>
-            <th scope="">Quantity</th>
+            <th scope="">Book Name</th>
+            <th scope="">Book Image</th>
+            <th scope="">Author</th>
             <th scope="">Price</th>
             <th scope="">Action</th>
           </tr>
@@ -39,6 +40,9 @@ const ManageBook = () => {
             <tr>
               <th scope="row"></th>
               <td>{book.bookName}</td>
+              <td>
+                <img style={{ width: "30px" }} src={book.imgURL} alt="" />
+              </td>
               <td>{book.authorName}</td>
               <td>${book.price}</td>
               <td>

@@ -28,16 +28,25 @@ const Orders = () => {
         <thead>
           <tr className="bookHeading">
             <th>Order Id</th>
+            <th>Book Image</th>
             <th>Books Name</th>
             <th>Author Name</th>
             <th>Price</th>
-            <th>Order Time</th>
+            <th>Order Date</th>
           </tr>
         </thead>
+
         {orders.map((order) => (
           <tbody key={order._id}>
             <tr>
               <th>{order._id}</th>
+              <th>
+                <img
+                  style={{ width: "30px" }}
+                  src={order.orders.imgURL}
+                  alt=""
+                />
+              </th>
               <td>{order.orders.bookName}</td>
               <td>{order.orders.authorName}</td>
               <td>${order.orders.price}</td>
@@ -50,8 +59,8 @@ const Orders = () => {
             <td className="fw-bold">Total</td>
             <td></td>
             <td></td>
+            <td className="fw-bold"></td>
             <td className="fw-bold">${total}</td>
-            <td></td>
           </tr>
         </tbody>
       </table>

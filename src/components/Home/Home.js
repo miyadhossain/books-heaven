@@ -14,8 +14,8 @@ const Home = () => {
         <div className="col-md-12 justify-content-center">
           <div className="row justify-content-center">
             {books.length === 0 && (
-              <div class="spinner-border text-info" role="status">
-                <span class="visually-hidden">Loading...</span>
+              <div className="spinner-border text-info" role="status">
+                <span className="visually-hidden"></span>
               </div>
             )}
             {books.map((book) => (
