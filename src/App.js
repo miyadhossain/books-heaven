@@ -6,6 +6,7 @@ import CheckOut from "./components/CheckOut/CheckOut";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
+import NoMatch from "./components/NoMatch/NoMatch";
 import Orders from "./components/Orders/Orders";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 export const userContext = createContext();
@@ -38,6 +39,9 @@ function App() {
           <Route path="/login">
             <Header />
             <Login />
+          </Route>
+          <Route path="*">
+            <NoMatch />
           </Route>
         </Switch>
       </Router>
