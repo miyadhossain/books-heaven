@@ -17,7 +17,7 @@ const ManageBook = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert("Delete successfullt.");
+        alert("Delete successfully.");
       });
   };
   return (

@@ -29,7 +29,7 @@ const Orders = () => {
           <tr className="bookHeading">
             <th>Order Id</th>
             <th>Book Image</th>
-            <th>Books Name</th>
+            <th>Book Name</th>
             <th>Author Name</th>
             <th>Price</th>
             <th>Order Date</th>

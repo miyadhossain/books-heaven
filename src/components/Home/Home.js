@@ -9,7 +9,22 @@ const Home = () => {
       .then((data) => setBooks(data));
   }, []);
   return (
-    <div>
+    <div className="container">
+      {/* search field */}
+      <form className="col-md-6 m-auto py-5">
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search Book"
+          />
+          <div className="input-group-append">
+            <button type="button" className="btn button">
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
       <div className="row">
         <div className="col-md-12 justify-content-center">
           <div className="row justify-content-center">
