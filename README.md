@@ -1,23 +1,45 @@
-<!-- Website title -->
+# Books Heaven
 
-# Book's Heaven
+### A Book Store E-commerce Web Application
 
-<!-- Website features -->
+## Features
 
-## Website's Features
+- Home Page
 
-### Various item book available at affordable price.
+  - Nav bar
+  - Products overview
+  - Price added
 
-### Authentication system.
+- Login Page
 
-### Checkout panel.
+  - Users can manually create accounts or log in
+  - Users can log in automatically with a Google account
 
-### Admin panel.
+- Admin / Dashboard Page
+  - To access the admin panel, users have to log in
+  - Total orders list collection
+  - Unlimited add, delete and update manage inventroy
 
-### Manage Inventory.
+## ScreenShot
 
-<!-- Website live link -->
+<!-- imgages -->
 
-### Live site
+![SS1](https://res.cloudinary.com/dxvzhnyuo/image/upload/v1619855207/books_ltnrd1.png)
+![SS2](https://res.cloudinary.com/dxvzhnyuo/image/upload/v1619855304/login_vqew4i.png)
+![SS3](https://res.cloudinary.com/dxvzhnyuo/image/upload/v1619855315/panel_d4wcyp.png)
 
-https://books--heaven.web.app/
+## Getting Started App
+
+<!-- Code -->
+
+```bash
+  npm install
+
+  npm start
+```
+
+## Project Link
+
+<!-- Links -->
+
+[Live Site](https://books--heaven.web.app/)
