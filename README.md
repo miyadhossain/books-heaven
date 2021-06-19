@@ -20,6 +20,12 @@
   - Total orders list collection
   - Unlimited add, delete and update manage inventroy
 
+## Project Link
+
+<!-- Links -->
+
+[Live Site](https://books--heaven.web.app/)
+
 ## ScreenShot
 
 <!-- imgages -->
@@ -37,9 +43,3 @@
 
   npm start
 ```
-
-## Project Link
-
-<!-- Links -->
-
-[Live Site](https://books--heaven.web.app/)
